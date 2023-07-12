@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+/node_modules
+/coverage
+/dist
+/build
+/temp
+.cache
+.DS_Store
+id_rsa
+*.html

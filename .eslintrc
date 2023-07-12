@@ -1,0 +1,106 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "import"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "airbnb"
+  ],
+  "rules": {
+    "arrow-body-style": 0,
+    "default-param-last": 0,
+    "no-plusplus": 0,
+    "indent": 0,
+    "no-return-await": 0,
+    "max-len": 0,
+    "object-curly-newline": 0,
+    "operator-linebreak": 0,
+    "no-confusing-arrow": 0,
+    "implicit-arrow-linebreak": 0,
+    "function-paren-newline": 0,
+    "no-extra-semi": 0,
+    "class-methods-use-this": 0,
+    "no-shadow": 0,
+    "no-use-before-define": 0,
+    "no-unused-expressions": 0,
+    "semi": [2, "never"],
+    "no-multiple-empty-lines": 2,
+    "no-console": [2, { "allow": ["warn", "error"] }],
+    "no-debugger": 2,
+    "no-unneeded-ternary": 2,
+    "no-useless-rename": 2,
+    "prefer-const": 2,
+    "no-param-reassign": [2, { "props": false }],
+    "prefer-object-spread": 2,
+    "linebreak-style": [2, "unix"],
+    "max-classes-per-file": [2, 1],
+    "max-lines": [2, 500],
+    "quotes": [2, "single", { "allowTemplateLiterals": true }],
+    "lines-between-class-members": [
+      2,
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
+    "padded-blocks": 2,
+    // typescript
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-use-before-define": [2, { "typedefs": false }],
+    "@typescript-eslint/naming-convention": [
+      2,
+      { "selector": "interface", "format": ["PascalCase"], "prefix": ["I"] },
+      { "selector": "typeAlias", "format": ["PascalCase"], "prefix": ["T"] },
+      { "selector": "typeParameter", "format": ["PascalCase"], "prefix": ["T"] }
+    ],
+    "@typescript-eslint/no-shadow": 2,
+    "@typescript-eslint/member-ordering": 2,
+    "@typescript-eslint/no-unused-expressions": [
+      2,
+      { "allowTernary": true, "allowShortCircuit": true }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      2,
+      {
+        "multiline": {
+          "delimiter": "none"
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    // import
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "import/no-absolute-path": 0,
+    "import/no-unresolved": 0,
+    "import/no-default-export": 2,
+    "import/no-cycle": 2,
+    "import/order": 2,
+    "import/newline-after-import": 2,
+    // react
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/no-unstable-nested-components": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "react/require-default-props": 0,
+    "react-hooks/exhaustive-deps": 1,
+    "react-hooks/rules-of-hooks": 2,
+    "react/forbid-prop-types": [2, { "forbid": ["any"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ]
+  }
+}
