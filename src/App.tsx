@@ -1,15 +1,40 @@
 import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from 'react-router-dom'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import { Header } from './components'
+import { Main, User } from './pages'
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+})
 
 export const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
-        <Route index element={<Navigate to="main" />} />
-        <Route path="main" element={<div>main</div>} />
-        <Route path="id" element={<div>id</div>} />
-        <Route path="*" element={<Navigate to="main" />} />
+        <Route index element={<Navigate to="people" />} />
+        <Route
+          element={
+            <ThemeProvider theme={darkTheme}>
+              <CssBaseline />
+              <Header />
+              <Outlet />
+            </ThemeProvider>
+          }
+        >
+          <Route path="people" element={<Main />} />
+          <Route path="people/:userId" element={<User />} />
+        </Route>
+        <Route path="*" element={<Navigate to="people" />} />
       </Routes>
-    </div>
+    </BrowserRouter>
   )
 }
