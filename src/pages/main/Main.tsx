@@ -4,7 +4,13 @@ import {
   useGetByNameQuery,
   useGetByPageNumberQuery,
 } from '../../services/people.service'
-import { HeroCard, Paginator, ProgressBar, SearchBar } from '../../components'
+import {
+  HeroCard,
+  NotFound,
+  Paginator,
+  ProgressBar,
+  SearchBar,
+} from '../../components'
 import { useDebounce } from '../../hooks/useDebounce'
 import { IApiResponse } from '../../models/common.model'
 import { DEFAULT_API_STATE } from '../../constants/common'
@@ -24,6 +30,11 @@ export const Main: React.FC = () => {
     skip: !debouncedHeroName,
   })
 
+  const isFetching = useMemo(
+    () => isAllDataFetching || isDataByNameFetching,
+    [isAllDataFetching, isDataByNameFetching],
+  )
+
   const { shownData, totalPageNumber } = useMemo((): {
     shownData: IApiResponse
     totalPageNumber: number
@@ -39,8 +50,8 @@ export const Main: React.FC = () => {
   return (
     <>
       <SearchBar heroName={heroName} setHeroName={setHeroName} />
-      <Container sx={{ py: 8 }} maxWidth="md">
-        <Grid container spacing={4}>
+      <Container sx={{ paddingBottom: '60px' }} maxWidth="md">
+        <Grid container spacing={4} justifyContent="center">
           {shownData.results.map(({ name, height, mass, url }) => (
             <HeroCard
               key={name}
@@ -52,7 +63,10 @@ export const Main: React.FC = () => {
           ))}
         </Grid>
       </Container>
-      <ProgressBar isShown={isAllDataFetching || isDataByNameFetching} />
+      <NotFound
+        isShown={!!debouncedHeroName && !dataByName.count && !isFetching}
+      />
+      <ProgressBar isShown={isFetching} />
       <Paginator
         count={totalPageNumber}
         pageNumber={pageNumber}

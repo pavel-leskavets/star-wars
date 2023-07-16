@@ -5,12 +5,10 @@ import { ImageListItem, Link } from '@mui/material'
 export const Header = () => (
   <Box
     sx={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
       flexGrow: 1,
       width: '100%',
       height: '60px',
+      marginBottom: '6px',
       padding: '8px 16px',
       display: 'flex',
       justifyContent: 'space-between',

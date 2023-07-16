@@ -10,6 +10,6 @@ export const ProgressBar: React.FC<TProps> = ({ isShown }) => (
     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
     open={isShown}
   >
-    <CircularProgress />
+    <CircularProgress size={60} />
   </Backdrop>
 )
