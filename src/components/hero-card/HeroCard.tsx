@@ -35,6 +35,7 @@ export const HeroCard: React.FC<TProps> = ({ name, height, mass, url }) => {
         <CardMedia
           component="img"
           sx={{
+            aspectRatio: 346 / 475,
             height: 'auto',
           }}
           image={`/people/${userId}.jpg`}
