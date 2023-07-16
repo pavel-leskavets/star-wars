@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IApiResponse } from '../models/common.model'
+import { IApiResponse, IHeroInfo } from '../models/common.model'
 
 export const peopleApi = createApi({
   reducerPath: 'peopleApi',
@@ -11,7 +11,11 @@ export const peopleApi = createApi({
     getByName: builder.query<IApiResponse, string>({
       query: (name) => `people/?search=${name}`,
     }),
+    getById: builder.query<IHeroInfo, string>({
+      query: (userId) => `people/${userId}`,
+    }),
   }),
 })
 
-export const { useGetByPageNumberQuery, useGetByNameQuery } = peopleApi
+export const { useGetByPageNumberQuery, useGetByNameQuery, useGetByIdQuery } =
+  peopleApi

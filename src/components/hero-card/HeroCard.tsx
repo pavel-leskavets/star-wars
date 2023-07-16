@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import {
   Button,
   Card,
@@ -20,6 +20,7 @@ type TProps = {
 
 export const HeroCard: React.FC<TProps> = ({ name, height, mass, url }) => {
   const navigate = useNavigate()
+  const userId = useMemo(() => getHeroIdFromUrl(url), [url])
 
   return (
     <Grid item key={name} xs={12} sm={6}>
@@ -36,7 +37,7 @@ export const HeroCard: React.FC<TProps> = ({ name, height, mass, url }) => {
           sx={{
             height: 'auto',
           }}
-          image={`/people/${getHeroIdFromUrl(url)}.jpg`}
+          image={`/people/${userId}.jpg`}
         />
         <CardContent sx={{ flexGrow: 1 }}>
           <Typography gutterBottom variant="h5" component="h2">
@@ -46,7 +47,7 @@ export const HeroCard: React.FC<TProps> = ({ name, height, mass, url }) => {
           <Typography>Mass: {mass}</Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => navigate(name)}>
+          <Button size="small" onClick={() => navigate(userId)}>
             View more
           </Button>
         </CardActions>

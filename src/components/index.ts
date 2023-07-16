@@ -1,5 +1,6 @@
 export { Header } from './header'
 export { HeroCard } from './hero-card'
+export { HeroForm } from './hero-form'
 export { NotFound } from './not-found'
 export { Paginator } from './paginator'
 export { ProgressBar } from './progress-bar'
